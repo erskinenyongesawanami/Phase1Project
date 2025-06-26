@@ -1,12 +1,12 @@
 # Phase1Project
-# 🍹 Cocktail Mixer
+#  Cocktail Mixer
 
 **Author:** Erskine Nyongesa  
 **Phase 1 Final Project – Moringa School**
 
 ---
 
-## 📖 Description
+##  Description
 
 **Cocktail Mixer** is a dynamic **Single Page Application (SPA)** that allows users to:
 
@@ -19,7 +19,7 @@ This project demonstrates JavaScript fundamentals, DOM manipulation, API integra
 
 ---
 
-## 🧠 User Stories
+## User Stories
 
 - As a user, I want to search for drinks by ingredient so that I can make cocktails with what I have at home.  
 - As a user, I want to get a random cocktail suggestion so that I can try something new and fun.  
@@ -28,20 +28,20 @@ This project demonstrates JavaScript fundamentals, DOM manipulation, API integra
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🔍 Search cocktails by ingredient  
-- 🎲 View a random cocktail suggestion  
-- 📋 View full recipes with ingredients and instructions  
-- ❤️ Save favorite cocktails to a JSON Server *(optional)*  
-- 🧠 3+ event listeners and dynamic UI updates  
-- 🔁 Uses `forEach()` and `map()` for iteration  
-- 🎨 Clean, intuitive UI with CSS styling  
-- 📄 SPA (no reloads, one HTML file)
+-  Search cocktails by ingredient  
+-  View a random cocktail suggestion  
+-  View full recipes with ingredients and instructions  
+-  Save favorite cocktails to a JSON Server *(optional)*  
+-  3+ event listeners and dynamic UI updates  
+-  Uses `forEach()` and `map()` for iteration  
+-  Clean, intuitive UI with CSS styling  
+-  SPA (no reloads, one HTML file)
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 - HTML  
 - CSS  
