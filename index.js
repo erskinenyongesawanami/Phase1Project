@@ -20,3 +20,21 @@ function handleSearch() {
       }
     });
 }
+
+function renderCocktails(cocktails) {
+  const container = document.getElementById("cocktail-container");
+  container.innerHTML = "";
+
+  cocktails.forEach(drink => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <h3>${drink.strDrink}</h3>
+      <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
+      <button onclick="getRecipe('${drink.idDrink}')">View Recipe</button>
+    `;
+
+    container.appendChild(card);
+  });
+}
