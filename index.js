@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   randomBtn.addEventListener("click", getRandomDrink);
 });
 
+//The function that handles searching for cocktails
 function handleSearch() {
   const ingredient = document.getElementById("ingredient-input").value.trim();
   if (!ingredient) return;
@@ -39,6 +40,7 @@ function renderCocktails(cocktails) {
   });
 }
 
+//The function that shows random cocktails
 function getRandomDrink() {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
     .then(res => res.json())
