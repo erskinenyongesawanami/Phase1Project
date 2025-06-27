@@ -54,3 +54,9 @@ function getRecipe(id) {
       alert(`${drink.strDrink}\n\nIngredients:\n${ingredients}\n\nInstructions:\n${drink.strInstructions}`);
     });
 }
+
+function getIngredients(drink) {
+  return Object.keys(drink)
+  .filter(key => key.startsWith("strIngredient") && drink[key])
+  .map(key => drink[key]);
+}
