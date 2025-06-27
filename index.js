@@ -6,22 +6,29 @@ document.addEventListener("DOMContentLoaded", () => {
   randomBtn.addEventListener("click", getRandomDrink);
 });
 
-//The function that handles searching for cocktails
-function handleSearch() {
-  const ingredient = document.getElementById("ingredient-input").value.trim();
-  if (!ingredient) return;
-
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+// Fetches data from a given URL and sends the results to renderCocktails()
+function fetchAndRender(url) {
+  fetch(url)
     .then(res => res.json())
     .then(data => {
       if (data.drinks) {
         renderCocktails(data.drinks);
       } else {
-        document.getElementById("cocktail-container").innerHTML = "No cocktails found.";
+        document.getElementById("cocktail-container").innerHTML = "<p>No cocktails found.</p>";
       }
     });
 }
 
+//The function that handles searching for cocktails
+function handleSearch() {
+  const ingredient = document.getElementById("ingredient-input").value.trim();
+  if (!ingredient) return;
+
+  fetchAndRender(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+
+}
+
+//Renders  a list of cocktails to the page as cards with name,image and recipe button
 function renderCocktails(cocktails) {
   const container = document.getElementById("cocktail-container");
   container.innerHTML = "";
@@ -42,11 +49,11 @@ function renderCocktails(cocktails) {
 
 //The function that shows random cocktails
 function getRandomDrink() {
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
-    .then(res => res.json())
-    .then(data => renderCocktails(data.drinks));
+  fetchAndRender(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+
 }
 
+//Gets the full recipe and ingredients for the selected cocktail.
 function getRecipe(id) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
     .then(res => res.json())
@@ -57,6 +64,7 @@ function getRecipe(id) {
     });
 }
 
+//Extracts all non-null ingredient values from the drink object
 function getIngredients(drink) {
   return Object.keys(drink)
   .filter(key => key.startsWith("strIngredient") && drink[key])
