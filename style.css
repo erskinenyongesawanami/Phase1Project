@@ -32,7 +32,8 @@ button {
 }
 
 button:hover {
-  background-color: #e6005c;
+  background-color: #d9005c;
+  transform: scale(1.05);
 }
 
 #cocktail-container {
