@@ -6,8 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
   randomBtn.addEventListener("click", getRandomDrink);
 });
 
+// Shows a loading message while data is being fetched
+function showLoading() {
+  const container = document.getElementById("cocktail-container");
+  container.innerHTML = "<p>Loading cocktails...</p>";
+}
+
 // Fetches data from a given URL and sends the results to renderCocktails()
 function fetchAndRender(url) {
+  showLoading(); //shows the loading message
+
   fetch(url)
     .then(res => res.json())
     .then(data => {
