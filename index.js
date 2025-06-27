@@ -38,3 +38,9 @@ function renderCocktails(cocktails) {
     container.appendChild(card);
   });
 }
+
+function getRandomDrink() {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+    .then(res => res.json())
+    .then(data => renderCocktails(data.drinks));
+}
