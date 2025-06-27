@@ -44,6 +44,7 @@ This project demonstrates JavaScript fundamentals, DOM manipulation, API integra
 ##  Tech Stack
 
 - HTML  
+This is my link to my project: https://erskinenyongesawanami.github.io/Phase1Project/
 - CSS  
 - JavaScript (ES6)  
 - [TheCocktailDB API](https://www.thecocktaildb.com/api.php)  
