@@ -44,3 +44,13 @@ function getRandomDrink() {
     .then(res => res.json())
     .then(data => renderCocktails(data.drinks));
 }
+
+function getRecipe(id) {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+    .then(res => res.json())
+    .then(data => {
+      const drink = data.drinks[0];
+      const ingredients = getIngredients(drink).join('\n');
+      alert(`${drink.strDrink}\n\nIngredients:\n${ingredients}\n\nInstructions:\n${drink.strInstructions}`);
+    });
+}
