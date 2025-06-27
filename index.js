@@ -70,9 +70,12 @@ function getRecipe(id) {
       const ingredients = getIngredients(drink).join("<br>");
 
       // Fill modal content
-      document.getElementById("modal-title").textContent = drink.strDrink;
-      document.getElementById("modal-ingredients").innerHTML = `<strong>Ingredients:</strong><br>${ingredients}`;
-      document.getElementById("modal-instructions").innerHTML = `<strong>Instructions:</strong><br>${drink.strInstructions}`;
+      // Fill modal content
+document.getElementById("modal-title").textContent = drink.strDrink;
+document.getElementById("modal-img").src = drink.strDrinkThumb;
+document.getElementById("modal-img").alt = drink.strDrink;
+document.getElementById("modal-ingredients").innerHTML = `<strong>Ingredients:</strong><br>${ingredients}`;
+document.getElementById("modal-instructions").innerHTML = `<strong>Instructions:</strong><br>${drink.strInstructions}`;
 
       // Show modal
       document.getElementById("recipe-modal").style.display = "block";
