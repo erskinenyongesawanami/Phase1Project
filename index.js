@@ -74,7 +74,16 @@ function getRecipe(id) {
 
 //Extracts all non-null ingredient values from the drink object
 function getIngredients(drink) {
-  return Object.keys(drink)
-  .filter(key => key.startsWith("strIngredient") && drink[key])
-  .map(key => drink[key]);
+  const ingredients = [];
+
+  for (let i = 1; i <= 15; i++) {
+    const ingredient = drink[`strIngredient${i}`];
+    const measure = drink[`strMeasure${i}`];
+
+    if (ingredient) {
+      ingredients.push(`${measure ? measure.trim() : ''} ${ingredient}`.trim());
+    }
+  }
+
+  return ingredients;
 }
