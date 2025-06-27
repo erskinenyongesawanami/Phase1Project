@@ -67,10 +67,18 @@ function getRecipe(id) {
     .then(res => res.json())
     .then(data => {
       const drink = data.drinks[0];
-      const ingredients = getIngredients(drink).join('\n');
-      alert(`${drink.strDrink}\n\nIngredients:\n${ingredients}\n\nInstructions:\n${drink.strInstructions}`);
+      const ingredients = getIngredients(drink).join("<br>");
+
+      // Fill modal content
+      document.getElementById("modal-title").textContent = drink.strDrink;
+      document.getElementById("modal-ingredients").innerHTML = `<strong>Ingredients:</strong><br>${ingredients}`;
+      document.getElementById("modal-instructions").innerHTML = `<strong>Instructions:</strong><br>${drink.strInstructions}`;
+
+      // Show modal
+      document.getElementById("recipe-modal").style.display = "block";
     });
 }
+
 
 //Extracts all non-null ingredient values from the drink object
 function getIngredients(drink) {
@@ -87,3 +95,22 @@ function getIngredients(drink) {
 
   return ingredients;
 }
+
+// Close modal on click of (x)
+document.getElementById("modal-close").addEventListener("click", () => {
+  document.getElementById("recipe-modal").style.display = "none";
+});
+
+// Close modal on click of (x)
+document.getElementById("modal-close").addEventListener("click", () => {
+  document.getElementById("recipe-modal").style.display = "none";
+});
+
+// Close modal on outside click
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("recipe-modal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
